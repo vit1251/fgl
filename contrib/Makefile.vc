@@ -1,0 +1,18 @@
+CL=C:\LANGUAGE\VC7\cl.exe
+LIB=C:\LANGUAGE\VC7\lib.exe
+LINK=C:\LANGUAGE\VC7\link.exe
+
+
+all: fgl2.lib fgl3.lib
+
+
+fgl2.lib: 
+	$(LIB) fglaux.obj -out:fglaux.lib
+
+fgl3.lib: 
+	$(LIB) fglu.obj -out:fglu.lib
+
+
+clean:
+	del *.obj
+	del *.lib

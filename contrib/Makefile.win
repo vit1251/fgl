@@ -1,0 +1,66 @@
+# Project: Demo3D
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = demo3d_private.res
+OBJ  = fgl.o fglaux.o fglu.o demo3d.o syslog.o fglt.o fgle.o fgls.o fglm.o fglb.o fgl3.o fgl2.o $(RES)
+LINKOBJ  = fgl.o fglaux.o fglu.o demo3d.o syslog.o fglt.o fgle.o fgls.o fglm.o fglb.o fgl3.o fgl2.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lgdi32 -mwindows  -lgmon -pg  -g3 -march=pentium-mmx -mmmx 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = demo3d.exe
+CXXFLAGS = $(CXXINCS)   -pg -g3 -march=pentium-mmx -mmmx
+CFLAGS = $(INCS)   -pg -g3 -march=pentium-mmx -mmmx
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before demo3d.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "demo3d.exe" $(LIBS)
+
+fgl.o: fgl.c
+	$(CC) -c fgl.c -o fgl.o $(CFLAGS)
+
+fglaux.o: fglaux.c
+	$(CC) -c fglaux.c -o fglaux.o $(CFLAGS)
+
+fglu.o: fglu.c
+	$(CC) -c fglu.c -o fglu.o $(CFLAGS)
+
+demo3d.o: demo3d.c
+	$(CC) -c demo3d.c -o demo3d.o $(CFLAGS)
+
+syslog.o: syslog.c
+	$(CC) -c syslog.c -o syslog.o $(CFLAGS)
+
+fglt.o: fglt.c
+	$(CC) -c fglt.c -o fglt.o $(CFLAGS)
+
+fgle.o: fgle.c
+	$(CC) -c fgle.c -o fgle.o $(CFLAGS)
+
+fgls.o: fgls.c
+	$(CC) -c fgls.c -o fgls.o $(CFLAGS)
+
+fglm.o: fglm.c
+	$(CC) -c fglm.c -o fglm.o $(CFLAGS)
+
+fglb.o: fglb.c
+	$(CC) -c fglb.c -o fglb.o $(CFLAGS)
+
+fgl3.o: fgl3.c
+	$(CC) -c fgl3.c -o fgl3.o $(CFLAGS)
+
+fgl2.o: fgl2.c
+	$(CC) -c fgl2.c -o fgl2.o $(CFLAGS)
+
+demo3d_private.res: demo3d_private.rc 
+	$(WINDRES) -i demo3d_private.rc --input-format=rc -o demo3d_private.res -O coff 

@@ -1,0 +1,18 @@
+LCC=C:\LANGUAGE\LCCWIN32\lcc.exe
+LCCLIB=C:\LANGUAGE\LCCWIN32\lcclib.exe
+LCCLNK=C:\LANGUAGE\LCCWIN32\lcclnk.exe
+
+
+all: fgl2.lib fgl3.lib
+
+
+fgl2.lib: fgl.obj
+	$(LCCLIB) fgl2.lib fgl.obj
+
+fgl3.lib: fgl.obj
+	$(LCCLIB) fglu.lib fglu.obj
+
+
+clean:
+	del *.obj
+	del *.lib
